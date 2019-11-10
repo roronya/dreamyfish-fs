@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/roronya/dreamyfish-fs#readme",
   "dependencies": {
-    "@google-cloud/bigquery": "^4.4.0"
+    "@google-cloud/bigquery": "^4.4.0",
+    "firebase-admin": "^8.7.0"
   }
 }
