@@ -1,0 +1,23 @@
+{
+  "name": "dreamyfish-fs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/roronya/dreamyfish-fs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roronya/dreamyfish-fs/issues"
+  },
+  "homepage": "https://github.com/roronya/dreamyfish-fs#readme",
+  "dependencies": {
+    "@google-cloud/bigquery": "^4.4.0"
+  }
+}
