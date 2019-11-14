@@ -21,8 +21,8 @@ WITH
   SELECT
     games.id,
     candidates.game_id,
-    candidates.tokuten,
-    ROW_NUMBER() OVER(PARTITION BY games.id ORDER BY candidates.tokuten DESC) AS rank
+    AVG(candidates.tokuten),
+    ROW_NUMBER() OVER(PARTITION BY games.id ORDER BY AVG(candidates.tokuten) DESC) AS rank
   FROM
     games
   INNER JOIN
@@ -34,14 +34,19 @@ WITH
   ON
     reviews.user_id = candidates.user_id
   WHERE
-    candidates.tokuten >= 70 )
+    candidates.tokuten >= 70
+  GROUP BY
+    games.id,
+    candidates.game_id
+  HAVING
+    games.id != candidates.game_id )
 SELECT
   id,
   ARRAY_AGG(game_id) AS recommends
 FROM
   candidates
 WHERE
-  rank <= 5
+  rank <= 10
 GROUP BY
   id
 `
