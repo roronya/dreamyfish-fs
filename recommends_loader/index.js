@@ -35,11 +35,10 @@ WITH
     reviews.user_id = candidates.user_id
   WHERE
     candidates.tokuten >= 70
+    AND games.id != candidates.game_id
   GROUP BY
     games.id,
-    candidates.game_id
-  HAVING
-    games.id != candidates.game_id )
+    candidates.game_id)
 SELECT
   id,
   ARRAY_AGG(game_id) AS recommends
